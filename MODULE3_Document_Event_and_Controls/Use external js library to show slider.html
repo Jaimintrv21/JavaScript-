@@ -1,0 +1,94 @@
+// Use external js library to show slider
+
+<!-- HTML code for the sliders -->
+<div id="slider-0" class="slider">
+  <div class="slide">Slide 1</div>
+  <div class="slide">Slide 2</div>
+  <div class="slide">Slide 3</div>
+</div>
+
+<div id="slider-1" class="slider">
+  <div class="slide">Slide 1</div>
+  <div class="slide">Slide 2</div>
+  <div class="slide">Slide 3</div>
+</div>
+
+<div id="slider-2" class="slider">
+  <div class="slide">Slide 1</div>
+  <div class="slide">Slide 2</div>
+  <div class="slide">Slide 3</div>
+</div>
+
+<div id="slider-3" class="slider">
+  <div class="slide">Slide 1</div>
+  <div class="slide">Slide 2</div>
+  <div class="slide">Slide 3</div>
+</div>
+
+<div id="slider-4" class="slider">
+  <div class="slide">Slide 1</div>
+  <div class="slide">Slide 2</div>
+  <div class="slide">Slide 3</div>
+</div>
+
+<!-- CSS code for styling the sliders -->
+<style>
+  .slider {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .slide {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    background-color: #333;
+    transition: transform 0.5s ease;
+  }
+
+  .slide:nth-child(1) {
+    background-color: #f1c40f;
+  }
+
+  .slide:nth-child(2) {
+    background-color: #2ecc71;
+  }
+
+  .slide:nth-child(3) {
+    background-color: #3498db;
+  }
+</style>
+
+<!-- JavaScript code to initialize the sliders -->
+<script>
+  // Import the slider library
+  import Slider from 'path_to_slider_library';
+
+  // Create a function to initialize the sliders
+  function initSliders() {
+    // Create 5 sliders
+    for (let i = 0; i < 5; i++) {
+      const sliderContainer = document.getElementById(`slider-${i}`);
+      const slider = new Slider(sliderContainer, {
+        // Configuration options for the slider
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
+      });
+    }
+  }
+
+  // Initialize the sliders when the document is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    initSliders();
+  });
+</script>

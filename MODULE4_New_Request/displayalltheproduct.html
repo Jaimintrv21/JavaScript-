@@ -1,0 +1,49 @@
+<!-- https://fakestoreapi.com/products
+ Display all the product from the api in your HTML page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display All Products</title>
+    <style>
+        /* Add some basic styling to make the output look decent */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .product-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .product-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display All Products</h1>
+    <ul class="product-list" id="product-list"></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://fakestoreapi.com/products')
+                .then(response => response.json())
+                .then(data => {
+                    const productList = document.getElementById('product-list');
+                    data.forEach(product => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${product.title} - Price: $${product.price}`;
+                        productList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching products:', error);
+                });
+        });
+    </script>
+</body>
+</html>
